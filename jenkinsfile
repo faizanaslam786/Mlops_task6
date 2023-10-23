@@ -12,14 +12,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install Python and required dependencies
-                sh 'echo hello'  // If you have a requirements file
+                bat 'echo hello'  // If you have a requirements file
             }
         }
 
         stage('Run Tests') {
             steps {
                 // Run your test cases using pytest
-                sh 'python test.py'
+                bat 'python test.py'
             }
         }
     }
