@@ -22,5 +22,17 @@ pipeline {
                 bat 'python test.py'
             }
         }
+        stage('Deploy') {
+            environment {
+                SERVER_NAME = "EC2"
+                SERVER_ID = credentials("mlops_jenkins_pipeline_demo")
+            }
+            steps {
+                echo "BRANCH NAME: ${env.BRANCH_NAME}"
+                echo "BUILD ID: ${env.BUILD_ID}"
+                echo "Credentials: ${env.SERVER_ID}"
+                // Add your deployment steps here
+            }
+        }
     }
 }
