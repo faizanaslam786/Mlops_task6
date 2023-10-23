@@ -2,9 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Checkout') {
             steps {
-                echo 'Hello World'
+                // Check out your code from your GitHub repository
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/yourusername/your-repo.git']]])
+            }
+        }
+        
+        stage('Install Dependencies') {
+            steps {
+                // Install Python and required dependencies
+                sh 'pip install -r requirements.txt'  // If you have a requirements file
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run your test cases using pytest
+                sh 'pytest test.py'
             }
         }
     }
