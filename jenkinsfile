@@ -5,14 +5,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Check out your code from your GitHub repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/yourusername/your-repo.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/faizanaslam786/Mlops_task6.git']]])
             }
         }
         
         stage('Install Dependencies') {
             steps {
                 // Install Python and required dependencies
-                sh 'pip install -r requirements.txt'  // If you have a requirements file
+                sh 'pip install pytest'  // If you have a requirements file
             }
         }
 
