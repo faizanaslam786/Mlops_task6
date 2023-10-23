@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Check out your code from your GitHub repository
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/faizanaslam786/Mlops_task6.git']])
+                checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[url: 'https://github.com/faizanaslam786/Mlops_task6.git']])
             }
         }
         
@@ -22,18 +22,5 @@ pipeline {
                 bat 'python test.py'
             }
         }
-
-        /*stage('Deploy') {
-            steps {
-                script {
-                    def branch_name = "PROD"
-                    if (branch_name == "PROD") {
-                        println "Deploying to production."
-                    } else if (branch_name == "TEST") {
-                        println "Deploying to testing."
-                    }
-                }
-            }
-        }*/
     }
 }
