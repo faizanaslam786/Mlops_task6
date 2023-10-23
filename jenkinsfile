@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') {
             environment {
                 SERVER_NAME = "EC2"
-                SERVER_ID = credentials("jenkins-github-credentials")
+                SERVER_ID = credentials("mlops_jenkins_pipeline_demo")
             }
             steps {
                 echo "BRANCH NAME: ${env.BRANCH_NAME}"
